@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QYS_Project</name>
+    </assembly>
+    <members>
+        <member name="M:QYS_Project.Controllers.MngApi.UserController.Get(System.Int32)">
+            <summary>
+            获取用户详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QYS_Project.Controllers.UserApi.SystemController.InitSystemManage(QYS_Project.Requests.System.InitSystemManageRequest)">
+            <summary>
+            初始化系统管理（菜单 菜单操作）
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QYS_Project.Controllers.UserApi.SystemController.GetMenus">
+            <summary>
+            获取菜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QYS_Project.Controllers.UserApi.SystemController.Register(QYS_Project.Requests.RegisterRequest)">
+            <summary>
+            用户注册
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QYS_Project.Controllers.UserApi.SystemController.Login(QYS_Project.Requests.LoginRequest)">
+            <summary>
+            登录
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QYS_Project.Controllers.UserApi.SystemController.RefreshToken(QYS_Project.Requests.RefreshTokenRequest)">
+            <summary>
+            刷新token
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QYS_Project.Helper.AutoProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Helper.CurUserHelp.UserInfo">
+            <summary>
+            当前用户会话
+            </summary>
+        </member>
+        <member name="M:QYS_Project.Helper.CurUserHelp.GetUserInfo">
+            <summary>
+            解析token 获取当前用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:QYS_Project.Helper.UserInfo.Id">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Helper.UserInfo.LogName">
+            <summary>
+            用户登录名
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Helper.UserInfo.Name">
+            <summary>
+            真实名字
+            </summary>
+        </member>
+        <member name="T:QYS_Project.Requests.LoginRequest">
+            <summary>
+            用户登录请求参数
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.LoginRequest.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.LoginRequest.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:QYS_Project.Requests.RefreshTokenRequest">
+            <summary>
+            RefreshToken 请求参数
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.RefreshTokenRequest.AccessToken">
+            <summary>
+            access_token
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.RefreshTokenRequest.RefreshToken">
+            <summary>
+            refresh_token
+            </summary>
+        </member>
+        <member name="T:QYS_Project.Requests.RegisterRequest">
+            <summary>
+            用户注册请求参数
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.RegisterRequest.LoginName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.RegisterRequest.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.RegisterRequest.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.RegisterRequest.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.RegisterRequest.IdentityCard">
+            <summary>
+            身份证号码
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.RegisterRequest.Phone">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.RegisterRequest.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.RegisterRequest.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.System.InitSystemManageRequest.MenuAndOpers">
+            <summary>
+            菜单和操作列表
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.System.MenuAndOper.Url">
+            <summary>
+            链接
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.System.MenuAndOper.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.System.MenuAndOper.MenuName">
+            <summary>
+            菜单名
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.System.MenuAndOper.Type">
+            <summary>
+            菜单类型
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.System.MenuAndOper.MenuOpers">
+            <summary>
+            页面操作
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.System.MenuAndOper.Children">
+            <summary>
+            子集
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.System.MenuOper.ActionName">
+            <summary>
+            操作名
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.System.MenuOper.ActionUrl">
+            <summary>
+            访问路径
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.System.MenuOper.ActionMethod">
+            <summary>
+            请求方式
+            </summary>
+        </member>
+        <member name="T:QYS_Project.Responses.Model.FailedResponse">
+            <summary>
+            登录 注册 失败时返回错误信息
+            </summary>
+        </member>
+        <member name="T:QYS_Project.Responses.Model.TokenResponse">
+            <summary>
+            注册 登录 成功后返回 token
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Responses.Model.TokenResponse.AccessToken">
+            <summary>
+            access_token
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Responses.Model.TokenResponse.TokenType">
+            <summary>
+            token类型
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Responses.Model.TokenResponse.ExpiresIn">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Responses.Model.TokenResponse.RefreshToken">
+            <summary>
+            refresh_token
+            </summary>
+        </member>
+        <member name="T:QYS_Project.ResultBuilder">
+            <summary>
+            响应结果生成工具
+            </summary>
+        </member>
+        <member name="M:QYS_Project.ResultBuilder.FailResult``1(``0,System.String,System.Int32)">
+            <summary>
+            失败结果
+            </summary>
+            <typeparam name="T">方法返回类型</typeparam>
+            <param name="failReason">失败原因</param>
+            <param name="data">业务参数</param>
+            <param name="code">错误码</param>
+            <returns></returns>
+        </member>
+        <member name="M:QYS_Project.ResultBuilder.SimpleResult(System.String,System.Int32)">
+            <summary>
+            简单的失败消息
+            </summary>
+            <param name="failReason"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QYS_Project.ResultBuilder.SimpleSuccess(System.String)">
+            <summary>
+            成功消息
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QYS_Project.ResultBuilder.SimpleFail(System.String)">
+            <summary>
+            失败消息
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QYS_Project.ResultBuilder.SuccessResult``1(``0,System.String)">
+            <summary>
+            成功结果
+            </summary>
+            <typeparam name="T">方法返回类型</typeparam>
+            <param name="data">业务参数</param>
+            <param name="message">说明</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
