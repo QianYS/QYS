@@ -38,8 +38,8 @@ namespace QYS_Project.Controllers.MngApi
         /// 获取所有任务
         /// </summary>
         /// <returns></returns>
-        [HttpGet, Route("GetTasks")]
-        public async Task<Response<PageList<TaskListResponse>>> GetMenus(TaskQueryRequest request)
+        [HttpPost, Route("GetTasks")]
+        public async Task<Response<PageList<TaskListResponse>>> GetMenus([FromBody] TaskQueryRequest request)
         {
             var taskList = await _taskService.GetAllJobs();
 

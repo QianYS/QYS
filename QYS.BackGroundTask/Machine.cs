@@ -9,7 +9,7 @@ namespace QYS.BackGroundTask
 
         public static void Start()
         {
-            SchedualHelper.SchedualJob<SyncRefreshTokenTask>("同步RefreshToken", "0/10 * * * * ? ");
+            SchedualHelper.SchedualJob<SyncRefreshTokenTask>("同步RefreshToken","System", "0/10 * * * * ? ");
 
         }
     }

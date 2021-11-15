@@ -30,14 +30,11 @@ namespace QYS.Service.Service.TaskSvr
 
                 foreach (var jobKey in jobList)
                 {
-                    var state = await scheduler.GetTriggerState(new TriggerKey(jobKey.Name));
+                    var state = await scheduler.GetTriggerState(new TriggerKey(jobKey.Name, groupName));
 
                     returnDto.Add(new TaskDto()
                         {JobGroup = jobKey.Group, JobName = jobKey.Name, JobStatus = state});
                 }
-
-                returnDto.AddRange(jobList.Select(jobKey => new TaskDto()
-                    { JobGroup = jobKey.Group, JobName = jobKey.Name}));
             }
 
             return returnDto;

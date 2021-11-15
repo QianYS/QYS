@@ -26,13 +26,10 @@ namespace QYS.BackGroundTask
         /// <summary>
         /// 添加计划任务
         /// </summary>
-        /// <param name="name"></param>
         /// <param name="jobDetail"></param>
         /// <param name="trigger"></param>
-        private static void ScheduleJob(string name, IJobDetail jobDetail, ITrigger trigger)
+        private static void ScheduleJob(IJobDetail jobDetail, ITrigger trigger)
         {
-            jobDetail.Key.Name = name;
-
             Scheduler.ScheduleJob(jobDetail, trigger);
         }
 
@@ -41,20 +38,23 @@ namespace QYS.BackGroundTask
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="name"></param>
+        /// <param name="group"></param>
         /// <param name="cron"></param>
-        public static void SchedualJob<T>(string name, string cron) where T : IJob
+        public static void SchedualJob<T>(string name, string group, string cron) where T : IJob
         {
             var job = JobBuilder.Create<T>().Build();
+            job.Key.Name = name;
+            job.Key.Group = group;
 
             //创建触发器
             var trigger = TriggerBuilder.Create()
-                .WithIdentity(name)
+                .WithIdentity(name, group)
                 .StartNow()
                 .WithCronSchedule(cron)
                 .Build();
 
             //加入作业调度池中
-            ScheduleJob(name, job, trigger);
+            ScheduleJob(job, trigger);
         }
 
     }

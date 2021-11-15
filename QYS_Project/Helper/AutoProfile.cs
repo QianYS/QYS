@@ -45,7 +45,7 @@ namespace QYS_Project.Helper
                 .ForMember(dest => dest.CreateTime, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(dest => dest.LastUpdate, opt => opt.MapFrom(src => DateTime.Now));
 
-            CreateMap<TaskListResponse, TaskDto>();
+            CreateMap<TaskListResponse, TaskDto>().ReverseMap();
 
             CreateMap<InitSystemDto, MenuAndOper>().ReverseMap();
             CreateMap<MenuAction, MenuOper>().ReverseMap();
