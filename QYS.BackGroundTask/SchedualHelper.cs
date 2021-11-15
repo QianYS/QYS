@@ -26,10 +26,13 @@ namespace QYS.BackGroundTask
         /// <summary>
         /// 添加计划任务
         /// </summary>
+        /// <param name="name"></param>
         /// <param name="jobDetail"></param>
         /// <param name="trigger"></param>
-        private static void ScheduleJob(IJobDetail jobDetail, ITrigger trigger)
+        private static void ScheduleJob(string name, IJobDetail jobDetail, ITrigger trigger)
         {
+            jobDetail.Key.Name = name;
+
             Scheduler.ScheduleJob(jobDetail, trigger);
         }
 
@@ -51,7 +54,7 @@ namespace QYS.BackGroundTask
                 .Build();
 
             //加入作业调度池中
-            ScheduleJob(job, trigger);
+            ScheduleJob(name, job, trigger);
         }
 
     }

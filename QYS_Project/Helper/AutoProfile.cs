@@ -9,8 +9,11 @@ using QYS.Service.Manager.RoleMenuManager.Dto;
 using QYS.Service.Manager.RoleOperManager.Dto;
 using QYS.Service.Manager.UserManager.Dto;
 using QYS.Service.Service.SystemSvr.Dto;
+using QYS.Service.Service.TaskSvr.Dto;
 using QYS.Service.Tool;
 using QYS_Project.Requests.System;
+using QYS_Project.Responses.MngApi.Task;
+using QYS_Project.Responses.Model;
 
 namespace QYS_Project.Helper
 {
@@ -41,6 +44,8 @@ namespace QYS_Project.Helper
 				.ForMember(dest => dest.Code, opt => opt.MapFrom(src => EncryptionHelper.Md5Encrypt32(src.Url)))
                 .ForMember(dest => dest.CreateTime, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(dest => dest.LastUpdate, opt => opt.MapFrom(src => DateTime.Now));
+
+            CreateMap<TaskListResponse, TaskDto>();
 
             CreateMap<InitSystemDto, MenuAndOper>().ReverseMap();
             CreateMap<MenuAction, MenuOper>().ReverseMap();

@@ -4,6 +4,18 @@
         <name>QYS_Project</name>
     </assembly>
     <members>
+        <member name="M:QYS_Project.Controllers.MngApi.TaskController.GetMenus">
+            <summary>
+            获取所有任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QYS_Project.Controllers.MngApi.TaskController.ManualTask(QYS_Project.Requests.MngApi.Task.ManualTaskRequest)">
+            <summary>
+            手动处理任务  （先做一个手动执行）
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:QYS_Project.Controllers.MngApi.UserController.Get(System.Int32)">
             <summary>
             获取用户详情
@@ -89,6 +101,26 @@
         <member name="P:QYS_Project.Requests.LoginRequest.Password">
             <summary>
             密码
+            </summary>
+        </member>
+        <member name="T:QYS_Project.Requests.MngApi.Task.ManualTaskRequest">
+            <summary>
+            手动处理请求
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.MngApi.Task.ManualTaskRequest.JobGroup">
+            <summary>
+            任务组
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.MngApi.Task.ManualTaskRequest.JobName">
+            <summary>
+            任务名
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.MngApi.Task.ManualTaskRequest.JobAction">
+            <summary>
+            任务操作
             </summary>
         </member>
         <member name="T:QYS_Project.Requests.RefreshTokenRequest">
@@ -204,6 +236,26 @@
         <member name="T:QYS_Project.Responses.Model.FailedResponse">
             <summary>
             登录 注册 失败时返回错误信息
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Responses.Model.TaskListResponse.JobGroup">
+            <summary>
+            任务组
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Responses.Model.TaskListResponse.JobName">
+            <summary>
+            任务名称
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Responses.Model.TaskListResponse.JobStatus">
+            <summary>
+            任务状态
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Responses.Model.TaskListResponse.JobStatusStr">
+            <summary>
+            任务状态（展示）
             </summary>
         </member>
         <member name="T:QYS_Project.Responses.Model.TokenResponse">
