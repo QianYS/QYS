@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Quartz.Impl.Matchers;
 using Quartz.Impl.Triggers;
+using QYS.Service.Tool;
 
 namespace QYS.Service.Service.TaskSvr
 {
@@ -59,7 +60,7 @@ namespace QYS.Service.Service.TaskSvr
                 return $"未找到任务[{jobName}]";
 
             var triggers = await scheduler.GetTriggersOfJob(jobKey);
-            var trigger = triggers?.Where(x => (x as CronTriggerImpl)?.Name == jobGroup).FirstOrDefault();
+            var trigger = triggers?.Where(x => (x as CronTriggerImpl)?.Name == jobName && (x as CronTriggerImpl)?.Group == jobGroup).FirstOrDefault();
             if (trigger == null)
                 return $"未找到触发器[{jobGroup}{jobName}]";
 
@@ -74,11 +75,14 @@ namespace QYS.Service.Service.TaskSvr
                 case EnumJobActions.Execute:
                     await scheduler.TriggerJob(jobKey);
                     break;
-                case EnumJobActions.Stop:
-                    await scheduler.Shutdown();
-                    break;
+                //case EnumJobActions.Stop:
+                //    await scheduler.Shutdown();
+                //    break;
+                //case EnumJobActions.Delete:
+                //    await scheduler.DeleteJob(trigger.JobKey);
+                //    break;
                 default:
-                    return "未找到对应的操作";
+                    return $"未找到对应的操作[{action.GetDescription()}]";
             }
 
             return string.Empty;
