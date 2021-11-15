@@ -4,7 +4,7 @@
         <name>QYS_Project</name>
     </assembly>
     <members>
-        <member name="M:QYS_Project.Controllers.MngApi.TaskController.GetMenus">
+        <member name="M:QYS_Project.Controllers.MngApi.TaskController.GetMenus(QYS_Project.Requests.MngApi.Task.TaskQueryRequest)">
             <summary>
             获取所有任务
             </summary>
@@ -123,6 +123,53 @@
             任务操作
             </summary>
         </member>
+        <member name="T:QYS_Project.Requests.MngApi.Task.TaskQueryRequest">
+            <summary>
+            后台任务查询
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.MngApi.Task.TaskQueryRequest.JobGroup">
+            <summary>
+            任务组
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.MngApi.Task.TaskQueryRequest.JobName">
+            <summary>
+            任务名
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.MngApi.Task.TaskQueryRequest.PageInfo">
+            <summary>
+            页码信息
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.PageInfo.PageIndex">
+            <summary>
+            页码
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.PageInfo.PageSize">
+            <summary>
+            页面显示条数
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.PageList`1.Table">
+            <summary>
+            列表
+            </summary>
+        </member>
+        <member name="P:QYS_Project.Requests.PageList`1.TotalCount">
+            <summary>
+            总数
+            </summary>
+        </member>
+        <member name="M:QYS_Project.Requests.PageList`1.Create(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+            <summary>
+            构造
+            </summary>
+            <param name="data"></param>
+            <param name="totalCount"></param>
+        </member>
         <member name="T:QYS_Project.Requests.RefreshTokenRequest">
             <summary>
             RefreshToken 请求参数
@@ -233,29 +280,34 @@
             请求方式
             </summary>
         </member>
-        <member name="T:QYS_Project.Responses.Model.FailedResponse">
+        <member name="T:QYS_Project.Responses.MngApi.Task.TaskListResponse">
             <summary>
-            登录 注册 失败时返回错误信息
+            定时任务列表
             </summary>
         </member>
-        <member name="P:QYS_Project.Responses.Model.TaskListResponse.JobGroup">
+        <member name="P:QYS_Project.Responses.MngApi.Task.TaskListResponse.JobGroup">
             <summary>
             任务组
             </summary>
         </member>
-        <member name="P:QYS_Project.Responses.Model.TaskListResponse.JobName">
+        <member name="P:QYS_Project.Responses.MngApi.Task.TaskListResponse.JobName">
             <summary>
             任务名称
             </summary>
         </member>
-        <member name="P:QYS_Project.Responses.Model.TaskListResponse.JobStatus">
+        <member name="P:QYS_Project.Responses.MngApi.Task.TaskListResponse.JobStatus">
             <summary>
             任务状态
             </summary>
         </member>
-        <member name="P:QYS_Project.Responses.Model.TaskListResponse.JobStatusStr">
+        <member name="P:QYS_Project.Responses.MngApi.Task.TaskListResponse.JobStatusStr">
             <summary>
             任务状态（展示）
+            </summary>
+        </member>
+        <member name="T:QYS_Project.Responses.Model.FailedResponse">
+            <summary>
+            登录 注册 失败时返回错误信息
             </summary>
         </member>
         <member name="T:QYS_Project.Responses.Model.TokenResponse">

@@ -10,6 +10,8 @@ using Quartz.Impl.Matchers;
 using Quartz.Impl.Triggers;
 using QYS.Service.Service.TaskSvr;
 using QYS.Service.Service.TaskSvr.Dto;
+using QYS.Service.Tool;
+using QYS_Project.Requests;
 using QYS_Project.Requests.MngApi.Task;
 using QYS_Project.Responses;
 using QYS_Project.Responses.MngApi.Task;
@@ -37,13 +39,27 @@ namespace QYS_Project.Controllers.MngApi
         /// </summary>
         /// <returns></returns>
         [HttpGet, Route("GetTasks")]
-        public async Task<Response<List<TaskListResponse>>> GetMenus()
+        public async Task<Response<PageList<TaskListResponse>>> GetMenus(TaskQueryRequest request)
         {
             var taskList = await _taskService.GetAllJobs();
 
             var list = _mapper.Map<List<TaskListResponse>>(taskList);
 
-            return ResultBuilder.SuccessResult(list);
+            var listQuery = list
+                .WhereIf(!string.IsNullOrEmpty(request.JobGroup), p => p.JobGroup == request.JobGroup)
+                .WhereIf(!string.IsNullOrEmpty(request.JobName), p => p.JobName == request.JobName);
+
+            var taskListResponses = listQuery as TaskListResponse[] ?? listQuery.ToArray();
+
+            var totalCount = taskListResponses.Count();
+
+            var table = taskListResponses.OrderBy(p => p.JobGroup).ThenBy(p => p.JobName)
+                .Skip((request.PageInfo.PageIndex - 1) * request.PageInfo.PageSize)
+                .Take(request.PageInfo.PageSize).ToList();
+
+            var data = PageList<TaskListResponse>.Create(table, totalCount);
+
+            return ResultBuilder.SuccessResult(data);
         }
 
         /// <summary>
